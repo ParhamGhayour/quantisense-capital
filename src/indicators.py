@@ -37,3 +37,20 @@ def add_volatility(df, window=7):
     )
 
     return df
+
+
+def add_ema_indicators(df):
+    """
+    Add exponential moving averages.
+    """
+
+    df = df.copy()
+
+    for period in [9, 21, 50, 100, 250]:
+        df[f"EMA_{period}"] = (
+            df["Close"]
+            .ewm(span=period, adjust=False)
+            .mean()
+        )
+
+    return df
