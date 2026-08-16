@@ -10,7 +10,7 @@ def add_market_score(df):
 
     df = df.copy()
 
-    ema_score = df["EMA_Score"]
+    ema_score = (df["EMA_Score"] + 100) / 2
 
     volatility_score = np.where(
         df["Volatility_Regime"] == "Low",

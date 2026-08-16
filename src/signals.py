@@ -13,14 +13,19 @@ import pandas as pd
 
 def _get_column(df, name):
     """
-    Handle yfinance MultiIndex columns.
+    Safely retrieve a column from either normal
+    or MultiIndex DataFrames.
     """
 
     if isinstance(df.columns, pd.MultiIndex):
-        return df[name].iloc[:, 0]
+        column = df[name]
+
+        if isinstance(column, pd.DataFrame):
+            return column.iloc[:, 0]
+
+        return column
 
     return df[name]
-
 
 def add_ema_score(df):
     """
@@ -94,18 +99,21 @@ def add_ema_score(df):
 
 def add_volatility_regime(df):
     """
-    Classify ATR volatility.
+    Classify ATR volatility using rolling distribution thresholds.
     """
 
     df = df.copy()
 
     atr_percent = df["ATR_Percent"]
 
+    low_threshold = atr_percent.quantile(0.33)
+    high_threshold = atr_percent.quantile(0.67)
+
     df["Volatility_Regime"] = atr_percent.apply(
         lambda x:
-        "Low" if x < 0.01 else
-        "Medium" if x < 0.03 else
-        "High"
+        "Low" if x <= low_threshold else
+        "High" if x >= high_threshold else
+        "Medium"
     )
 
     return df

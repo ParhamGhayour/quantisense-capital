@@ -21,6 +21,6 @@ def save_dataset(
     if directory:
         os.makedirs(directory, exist_ok=True)
 
-    data.to_csv(path)
+    data.to_csv(path, index=False)
 
     return path
