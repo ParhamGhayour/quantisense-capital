@@ -99,21 +99,31 @@ def add_ema_score(df):
 
 def add_volatility_regime(df):
     """
-    Classify ATR volatility using rolling distribution thresholds.
+    Classify ATR volatility using expanding historical quantiles.
+
+    Each row is classified using only information available
+    up to that row.
     """
 
     df = df.copy()
 
     atr_percent = df["ATR_Percent"]
 
-    low_threshold = atr_percent.quantile(0.33)
-    high_threshold = atr_percent.quantile(0.67)
+    expanding = atr_percent.expanding(min_periods=30)
 
-    df["Volatility_Regime"] = atr_percent.apply(
-        lambda x:
-        "Low" if x <= low_threshold else
-        "High" if x >= high_threshold else
-        "Medium"
-    )
+    low_threshold = expanding.quantile(0.33)
+    high_threshold = expanding.quantile(0.67)
+
+    df["Volatility_Regime"] = "Medium"
+
+    df.loc[
+        atr_percent <= low_threshold,
+        "Volatility_Regime"
+    ] = "Low"
+
+    df.loc[
+        atr_percent >= high_threshold,
+        "Volatility_Regime"
+    ] = "High"
 
     return df
