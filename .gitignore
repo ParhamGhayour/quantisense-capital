@@ -216,3 +216,43 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# ============================================================
+# Quantisense Capital — experimental data and artifacts
+# ============================================================
+
+catboost_info/
+
+# Experimental datasets
+data/*_test.csv
+data/*_walkforward.csv
+data/*_backtest.csv
+data/*_scored.csv
+data/*_features.csv
+
+# Experimental ML outputs
+data/*_ml_v2*
+data/multi_asset_ai_v2*
+data/multi_asset_rf_*
+data/crypto_rf_*
+data/rf_locked_*
+data/btc_*
+
+# Development datasets
+data/*_multi_year.csv
+data/*_multi_year_clean.csv
+data/*_multi_year_context.csv
+data/*_multi_year_phase1.csv
+
+# GDELT development artifacts
+data/gdelt*
+data/*.zip
+
+# Old V1 experimental evaluations
+data/multi_asset_v1_*
+data/V1_FINAL_*
+
+# Keep canonical V1 results
+!data/V1_CANONICAL_*.csv
+!data/V1_CANONICAL_*.txt

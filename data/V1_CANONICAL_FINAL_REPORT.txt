@@ -1,0 +1,30 @@
+QUANTISENSE CAPITAL — V1 CANONICAL FINAL REPORT
+======================================================================
+
+V1 status: OPERATIONAL RESEARCH PROTOTYPE
+Market-beating claim: NOT ESTABLISHED
+Quantum advantage: NOT ESTABLISHED
+Media intelligence validation: INSUFFICIENT DATA
+
+Asset  Cost_bps  Observations  Accuracy  Balanced_Accuracy  Gross_Return  Net_Return   Sharpe     MaxDD  Turnover  Average_Daily_Turnover
+  BTC         0          2610  0.508429           0.507747      4.518596    4.518596 0.663168 -0.442448     956.0                0.366284
+  ETH         0          2610  0.513027           0.514121      0.647692    0.647692 0.330652 -0.697239    1418.0                0.543295
+  SOL         0          1920  0.504167           0.501476     -0.316289   -0.316289 0.200310 -0.820575     692.0                0.360417
+  SPY         0          1780  0.514607           0.483648      0.536137    0.536137 0.472091 -0.319819     641.0                0.360112
+  QQQ         0          1780  0.511236           0.477048      0.060580    0.060580 0.147048 -0.400996     481.0                0.270225
+
+10 BPS RESULTS
+Asset  Cost_bps  Observations  Accuracy  Balanced_Accuracy  Gross_Return  Net_Return    Sharpe     MaxDD  Turnover  Average_Daily_Turnover
+  BTC        10          2610  0.508429           0.507747      4.518596    1.120029  0.384299 -0.526628     956.0                0.366284
+  ETH        10          2610  0.513027           0.514121      0.647692   -0.601387  0.025602 -0.776956    1418.0                0.543295
+  SOL        10          1920  0.504167           0.501476     -0.316289   -0.658989  0.037856 -0.896015     692.0                0.360417
+  SPY        10          1780  0.514607           0.483648      0.536137   -0.191305 -0.116972 -0.488251     641.0                0.360112
+  QQQ        10          1780  0.511236           0.477048      0.060580   -0.344784 -0.165491 -0.513591     481.0                0.270225
+
+BUY AND HOLD
+Asset  Observations  BuyHold_Return  BuyHold_Sharpe  BuyHold_MaxDD
+  BTC          2610        6.415534        0.642354      -0.766346
+  ETH          2610       10.383066        0.690496      -0.793512
+  SOL          1920        1.756471        0.569535      -0.962725
+  SPY          1780        1.653140        0.797350      -0.341047
+  QQQ          1780        2.877841        0.908278      -0.356172
